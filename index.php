@@ -168,25 +168,38 @@
 
 //  -------------------EXO10-------------------------
 
-function multiple($n){
+// function multiple($n){
  
-    echo ($n % 3 === 0 || $n % 7 === 0)? "True": "False";
+//     echo ($n % 3 === 0 || $n % 7 === 0)? "True": "False";
    
- }
- echo multiple(14). "<br/>";
+//  }
+//  echo multiple(14). "<br/>";
+
+// -----------------------------------------------------
 
 
+class SimpleClass
+{
+    // déclaration d'une propriété
+    public $var = 'une valeur par défaut';
+
+    // déclaration des méthodes
+    public function displayVar() {
+        echo $this->var;
+    }
+}
 
 
 // -----------------COALESCENT----------------------------
 //  **l’opérateur coalescent
 //   $a = 7;
 //   $b = 5;
+//  echo $a ?? $b ?? 3;
 // -------------------VAR-GLOBAL-----------------------------
 // variable globale
 $_GLOBALS['MaVar']="Bonjour";
  echo  '<br/> <br/>';
-//  echo $a ?? $b ?? 3;
+
 // echo $_GLOBALS['MaVar']
 
 // -------------------CONSTANT-----------------------------
@@ -220,6 +233,71 @@ $myArr = array('Abdoulaye'=>1988, 'Marie'=>1995, 'Rokhaya'=>2021);
 // — $_COOKIE[ ] pour les cookies
 // — $_SESSION[ ] pour les sessions
 
+
+
+// -----------------CLASS & OBJET--------------
+
+ class Vehicle {
+
+        // ayons l'habitude de mettre nos propriets en private
+        private $_name;
+        // definissons les getteurs pour acceder a nos proprietes et des setteurs pour les modifier
+        public function getName(){
+           echo $this->_name;
+        }
+        public function setName($_newName){
+           echo $this->_name = $_newName;
+        }
+        private $_speed;
+        
+        // definition d'un constructeur...
+        public function __construct(string $name, int $speed){
+
+            $this->_name = $name;
+            $this->_speed = $speed;
+        }
+
+        // definition d'une methode
+        public function move(){
+            echo $this->_name. 'se deplace' .$this->_speed. 'km/h';
+        }
+    
+    }
+     
+    // instanciation de la classe (creation d'un objet)
+    $obj1 = new Vehicle('Audi', 750);
+
+    // acces a la propriete
+    $obj1->getName();
+    echo '<br/>';
+    $obj1->setName('BMW');
+    echo '<br/>';
+    $obj1->move();
+    echo '<br/>';
+    -----------------------------------------------
+    
+
+
+
+// ----------------OPERATEUR DE RESOLUTION------------
+// class DataBase {
+
+//     // definition d'une propriete statique
+//     public static $_sgbd = 'MySQL';
+    
+//     // definition d'une methode statique
+//     public static function connect(){
+//         echo 'Je me connecte...';
+//     }
+
+// }
+// //  dans une classe statique pour acceder aux methodes et proprietes on utilise l'operateur de resolution 
+
+// // et pour cela on utilise le nom de la classe suivi de l'operateur de resolution suivi du nom de la propriete ou methode...
+
+// echo DataBase::$_sgbd;
+// echo '<br/>';
+// DataBase::connect();
 
 
  ?>
