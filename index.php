@@ -14,7 +14,7 @@
 //         echo $result;
 //      }
 //  }
-//  somme(5, 5);
+//  somme(5, 3);
 
 
 // ----------------------EXO2----------------------------
@@ -178,16 +178,16 @@
 // -----------------------------------------------------
 
 
-class SimpleClass
-{
-    // déclaration d'une propriété
-    public $var = 'une valeur par défaut';
+// class SimpleClass
+// {
+//     // déclaration d'une propriété
+//     public $var = 'une valeur par défaut';
 
-    // déclaration des méthodes
-    public function displayVar() {
-        echo $this->var;
-    }
-}
+//     // déclaration des méthodes
+//     public function displayVar() {
+//         echo $this->var;
+//     }
+// }
 
 
 // -----------------COALESCENT----------------------------
@@ -212,7 +212,119 @@ $long = 'bonjour';
 // echo $lg;
 // echo stristr($long, 'Jour')?'vrai': 'false';
 
-// -------------------TABLEAUX-----------------------------
+// -------------------TABLEAUX--------------------------
+
+// EXO1
+// $color = array('white', 'green', 'red', 'blue', 'black');
+
+// echo "The memory of that scene for me is like a frame of film forever frozen at that moment: the " .$color[2]." carpet, the ".$color[1]. " lawn, the ".$color[0]." house, the leaden sky. The new president and his first lady. - Richard M. Nixon";
+
+// ------------------EXO2---------------------------
+// $color = array('white', 'green', 'red');
+
+// for ($i=0; $i < count($color); $i++) { 
+//     echo $color[$i]."\n";
+// }
+
+// sort($color);
+// echo "<ul>";
+// for ($i=0; $i < count($color); $i++) { 
+//     echo "<li>" .$color[$i]. "</li>";
+// }
+// echo "</ul>";
+
+// -------------------EXO2-BIS-----------------------
+
+// $color = array('white', 'green', 'red');
+
+// foreach($color as $item){
+//     echo $item."\n";
+// }
+
+// sort($color);
+//     echo "<ul>";
+// foreach($color as $item){
+//     echo "<li>" .$item. "</li>";
+// }
+//     echo "</ul>";
+
+// ----------------EXO3---------------------------
+// $ceu = array( "Italy"=>"Rome", "Luxembourg"=>"Luxembourg", "Belgium"=> "Brussels", "Denmark"=>"Copenhagen", "Finland"=>"Helsinki", "France" => "Paris", "Slovakia"=>"Bratislava", "Slovenia"=>"Ljubljana", "Germany" => "Berlin", "Greece" => "Athens", "Ireland"=>"Dublin", "Netherlands"=>"Amsterdam", "Portugal"=>"Lisbon", "Spain"=>"Madrid", "Sweden"=>"Stockholm", "United Kingdom"=>"London", "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga", "Malta"=>"Valetta", "Austria" => "Vienna", "Poland"=>"Warsaw") ;
+
+// // asort(): tri un tableau dans l'ordre croissant en conservant l'association des index... Son contraire : arsort()....
+// asort($ceu);
+// foreach($ceu as $k => $v){
+//     // sort($v);
+//     echo "The capital of " .$k. " is " .$v."<br/> ";
+// }
+
+// ---------------------EXO4--------------------------
+// $x = array(1, 2, 3, 4, 5);
+
+// var_dump($x);
+// // unset — Détruit une variable
+// unset($x[3]);
+// echo "<br/> <br/>";
+// // array_values — Retourne toutes les valeurs d'un tableau
+// // print_r — Affiche des informations lisibles pour une variable
+// print_r(array_values($x));
+// echo "<br/> <br/>";
+// var_dump($x);
+
+// ---------------------EXO5-----------------------
+
+// $color = array(4 => 'white', 6 => 'green', 11=> 'red');
+// // reset() replace le pointeur de tableau array au premier élément et retourne la valeur du premier élément.
+// $first = reset($color);
+// echo $first;
+
+// ----------------EXO6-------------------------
+
+// function display($val, $key){
+//     echo $key. " : " .$val. "<br/>";
+// }
+
+// $json = '{"Title": "The Cuckoos Calling",
+//     "Author": "Robert Galbraith",
+//     "Detail": {
+//     "Publisher": "Little Brown"
+//     }}';
+
+//     $arr1 = (json_decode($json, true));
+
+    // print_r($arr1);
+    // foreach ($arr1 as $key => $val) {
+    //     echo $key. " : " .$val. "<br/>";
+    // }
+
+// ----------------------------
+
+
+
+// array_walk_recursive($arr1, "display");
+// -------------------EXO7-------------------------
+
+function insert_elem($el, int $i){
+   
+   $myarr = array('1','2','3','4','5');
+        array_splice($myarr, $i, 0, $el);
+        // print_r($myarr);
+        foreach($myarr as $elem){
+            echo ' '.$elem;
+        }
+    
+}
+insert_elem('$', 3);
+
+
+
+
+
+
+
+
+
+
 // Les tableaux associatifs parcourus avec foreach
 
 $myArr = array('Abdoulaye'=>1988, 'Marie'=>1995, 'Rokhaya'=>2021);
@@ -237,46 +349,83 @@ $myArr = array('Abdoulaye'=>1988, 'Marie'=>1995, 'Rokhaya'=>2021);
 
 // -----------------CLASS & OBJET--------------
 
- class Vehicle {
+//  class Vehicle {
 
-        // ayons l'habitude de mettre nos propriets en private
-        private $_name;
-        // definissons les getteurs pour acceder a nos proprietes et des setteurs pour les modifier
-        public function getName(){
-           echo $this->_name;
-        }
-        public function setName($_newName){
-           echo $this->_name = $_newName;
-        }
-        private $_speed;
+//         // ayons l'habitude de mettre nos propriets en private ou protected s'il ya heritage
+//         protected $_name;
+//         // definissons les getteurs pour acceder a nos proprietes et des setteurs pour les modifier
+//         public function getName(){
+//            echo $this->_name;
+//         }
+//         public function setName($_newName){
+//            echo $this->_name = $_newName;
+//         }
+//         protected $_speed;
         
-        // definition d'un constructeur...
-        public function __construct(string $name, int $speed){
+//         // definition d'un constructeur...
+//         public function __construct( $name,  $speed){
 
-            $this->_name = $name;
-            $this->_speed = $speed;
-        }
+//             $this->_name = $name;
+//             $this->_speed = $speed;
+//         }
 
-        // definition d'une methode
-        public function move(){
-            echo $this->_name. 'se deplace' .$this->_speed. 'km/h';
-        }
+//         // definition d'une methode
+//         public function move(){
+//             echo $this->_name. 'se deplace' .$this->_speed. 'km/h';
+//         }
     
-    }
+//     }
      
-    // instanciation de la classe (creation d'un objet)
-    $obj1 = new Vehicle('Audi', 750);
+//     // instanciation de la classe (creation d'un objet)
+//     $obj1 = new Vehicle('Audi', 750);
 
-    // acces a la propriete
-    $obj1->getName();
-    echo '<br/>';
-    $obj1->setName('BMW');
-    echo '<br/>';
-    $obj1->move();
-    echo '<br/>';
-    // -----------------------------------------------
+//     // acces a la propriete
+//     $obj1->getName();
+//     echo '<br/>';
+//     $obj1->setName('BMW');
+//     echo '<br/>';
+//     $obj1->move();
+//     echo '<br/>';
+
+
+//     class Bus extends Vehicle {
+
+//         private $_color;
+//         public function __construct($name, $speed, $color){
+
+//             // ici on a pas besoin de redefinir le constructeur mere, on utilise le mot cle "parent" et l'operateur de resolution(::) pour heriter de la classe mere...
+//             parent::__construct($name, $speed);
+
+//             // on peut egalement ajouter de nouvelles propriétes dans le constructeur...
+//             $this->_color = $color;
+//         }
+        
+//         public function myCar(){
+//             echo "Ma voiture ".$this->_name. " est de couleur ". $this->_color. " et a une vitesse de " .$this->_speed. " km/h.";
+//         }
+
+//     }
+//     echo '<br/> <br/> <br/>';
+//     $obj2 = new Bus('TOYOTA', 250, 'blanche');
     
+//     $obj2->myCar();
 
+
+    // ---------------ABSTRACT CLASS-------------------
+    
+// on ne peut pas instancier une classe abstrait et pour l'heritage de cette classe il est imperatif de redefinir les proprietes et les methodes...
+// abstract class Mere {
+//     abstract public function hello();
+// }
+// class Fille extends Mere {
+//     public function hello(){
+//         echo 'je suis une classe fille...';
+//     }
+// }
+
+// $obj3 = new Fille();
+// echo '<br/> <br/> <br/>';
+// $obj3->hello();
 
 
 // ----------------OPERATEUR DE RESOLUTION------------
